@@ -1,0 +1,38 @@
+<h1>Add a new pet</h1>
+<form action="/pets" method="post">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" name="pet[name]" id="name">
+  </div>
+  <div>
+    <label for="breed">Breed:</label>
+    <input type="text" name="pet[breed]" id="breed">
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea name="pet[description]" id="description"></textarea>
+  </div>
+  <div>
+    <input type="submit" value="Add">
+  </div>
+</form>
+
+
+
+<%# <h1>Add Pet</h1>
+
+<form method="POST" action="/pets">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="pet[name]">
+
+  <label for="breed">Breed:</label>
+  <input type="text" id="breed" name="pet[breed]">
+
+  <label for="age">Age:</label>
+  <input type="text" id="age" name="pet[age]">
+
+  <label for="description">Description:</label>
+  <textarea id="description" name="pet[description]"></textarea>
+
+  <input type="submit" value="Add Pet">
+</form> %>

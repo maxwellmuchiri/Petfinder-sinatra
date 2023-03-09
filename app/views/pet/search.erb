@@ -1,0 +1,51 @@
+<h1>Search for a Pet</h1>
+
+<form action="/pets/search" method="get">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+  <br>
+
+  <label for="breed">Breed:</label>
+  <input type="text" id="breed" name="breed">
+  <br>
+
+  <button type="submit">Search</button>
+</form>
+
+<% if @pets.any? %>
+  <h2>Results:</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Breed</th>
+        <th>Age</th>
+        <th>Owner</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pets.each do |pet| %>
+        <tr>
+          <td><%= pet.name %></td>
+          <td><%= pet.breed %></td>
+          <td><%= pet.age %></td>
+          <td><%= pet.user.name %></td>
+          <td>
+            <a href="/pets/<%= pet.id %>">View</a>
+            <% if pet.user == current_user %>
+              <a href="/pets/<%= pet.id %>/edit">Edit</a>
+              <form action="/pets/<%= pet.id %>" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit">Delete</button>
+              </form>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No pets found.</p>
+<% end %>

@@ -1,4 +1,3 @@
-require_relative './config/environment'
+require './app'
 
-# use TodoController
-# run UserController 
+run Sinatra::Application
